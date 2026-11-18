@@ -1,0 +1,22 @@
+# Maven e IDE
+target/
+.idea/
+*.iml
+.classpath
+.project
+.settings/
+.vscode/
+
+# Dados locais, logs e segredos
+data/
+*.mv.db
+*.trace.db
+*.log
+.env
+.env.*
+!.env.example
+application-local.properties
+
+# Sistema
+.DS_Store
+Thumbs.db

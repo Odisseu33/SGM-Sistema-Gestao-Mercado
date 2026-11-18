@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>SGM</title></head>
+<body th:fragment="shell(content)">
+<div class="workspace">
+ <aside class="sidebar" aria-label="Navegação principal">
+  <a class="identity" th:href="@{/}"><span class="identity-symbol">s<span class="identity-dot">.</span></span><span class="identity-copy"><strong>SGM</strong><small>Gestão de mercado</small></span></a>
+  <div class="sidebar-group"><span class="nav-caption">GERENCIAMENTO</span>
+   <a class="nav-link" data-nav="/" th:href="@{/}"><i class="bi bi-columns-gap"></i><span>Visão geral</span></a>
+   <a class="nav-link" data-nav="/produtos" th:href="@{/produtos}"><i class="bi bi-box"></i><span>Produtos</span></a>
+   <a class="nav-link" data-nav="/categorias" th:href="@{/categorias}"><i class="bi bi-collection"></i><span>Categorias</span></a>
+   <a class="nav-link" data-nav="/fornecedores" th:href="@{/fornecedores}"><i class="bi bi-people"></i><span>Fornecedores</span></a>
+  </div>
+  <div class="sidebar-group"><span class="nav-caption">MOVIMENTAÇÃO</span>
+   <a class="nav-link" data-nav="/vendas/nova" th:href="@{/vendas/nova}"><i class="bi bi-plus-square"></i><span>Nova venda</span></a>
+   <a class="nav-link" data-nav="/vendas" th:href="@{/vendas}"><i class="bi bi-receipt"></i><span>Vendas</span></a>
+   <a class="nav-link" data-nav="/estoque" th:href="@{/estoque}"><i class="bi bi-arrow-left-right"></i><span>Estoque</span></a>
+   <a class="nav-link" data-nav="/relatorios" th:href="@{/relatorios}"><i class="bi bi-bar-chart-line"></i><span>Relatórios</span></a>
+  </div>
+  <div class="sidebar-bottom"><span class="sidebar-status"><span class="status-dot"></span> Área administrativa</span><form th:action="@{/logout}" method="post"><input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"><button class="signout" type="submit"><i class="bi bi-box-arrow-right"></i> Encerrar sessão</button></form></div>
+ </aside>
+ <div class="workspace-main">
+  <header class="topbar"><span class="topbar-context">SGM <span class="breadcrumb-divider">/</span> Administração</span><span class="topbar-meta"><span class="topbar-dot"></span> Sistema de gestão</span></header>
+  <div class="app-content"><div th:if="${sucesso}" class="alert alert-success" role="status" th:text="${sucesso}"></div><div th:if="${erro}" class="alert alert-danger" role="alert" th:text="${erro}"></div><div th:replace="${content}"></div></div>
+ </div>
+</div>
+<script th:src="@{/webjars/bootstrap/5.3.8/js/bootstrap.bundle.min.js}"></script><script th:src="@{/js/app.js}"></script>
+</body></html>
